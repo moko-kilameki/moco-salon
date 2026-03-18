@@ -1,0 +1,3166 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ぬいぐるみ心整所 モコ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Zen+Maru+Gothic:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Zen Maru Gothic', 'Noto Serif JP', serif;
+      background: #FFFFFF;
+      color: #999999;
+      line-height: 2;
+      font-weight: 300;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 100px 40px;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* ========================================
+       トップページ
+    ======================================== */
+    .welcome {
+      text-align: center;
+      padding-top: 120px;
+    }
+
+    .welcome-title {
+      font-size: 1.3rem;
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      margin-bottom: 100px;
+      color: #AAAAAA;
+    }
+
+    .welcome-title::before {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 80px;
+      background: linear-gradient(to bottom, transparent, rgba(170, 170, 170, 0.3), transparent);
+      margin: 0 auto 80px;
+    }
+
+    /* きらめきモコのビジュアル */
+    .kirameki-visual {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto 60px;
+    }
+
+    .kirameki-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.05));
+    }
+
+    .welcome-catchphrase {
+      font-size: 1.1rem;
+      line-height: 2.5;
+      margin-bottom: 40px;
+      color: #AAAAAA;
+      font-weight: 300;
+    }
+
+    .welcome-note {
+      font-size: 0.7rem;
+      color: #CCCCCC;
+      margin-bottom: 100px;
+      letter-spacing: 0.1em;
+    }
+
+    .welcome-description {
+      margin: 80px auto 100px;
+      max-width: 500px;
+      padding: 50px 40px;
+      border: 1px solid rgba(170, 170, 170, 0.15);
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    .welcome-description-text {
+      font-size: 0.95rem;
+      line-height: 2.2;
+      color: #AAAAAA;
+      text-align: center;
+    }
+
+    .kirameki-intro {
+      margin: 100px auto;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .kirameki-intro-text {
+      font-size: 0.9rem;
+      line-height: 2.2;
+      color: #BBBBBB;
+    }
+
+    /* ボタン */
+    .button {
+      background: transparent;
+      border: 1px solid rgba(170, 170, 170, 0.3);
+      padding: 18px 50px;
+      font-size: 0.9rem;
+      font-family: 'Zen Maru Gothic', serif;
+      letter-spacing: 0.15em;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      font-weight: 300;
+      color: #999999;
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background: rgba(170, 170, 170, 0.03);
+      border-color: rgba(170, 170, 170, 0.4);
+    }
+
+    .button:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .button-primary {
+      border-color: rgba(170, 170, 170, 0.4);
+    }
+
+    .button-small {
+      padding: 12px 30px;
+      font-size: 0.75rem;
+    }
+
+    .button-secondary {
+      border-color: rgba(170, 170, 170, 0.2);
+      color: #BBBBBB;
+      font-size: 0.85rem;
+    }
+
+    .nav-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      margin-top: 80px;
+    }
+
+    /* ========================================
+       問診フォーム
+    ======================================== */
+    .title {
+      font-size: 1.2rem;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #AAAAAA;
+    }
+
+    .text {
+      font-size: 0.9rem;
+      color: #BBBBBB;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 50px;
+    }
+
+    .label {
+      display: block;
+      font-size: 0.85rem;
+      margin-bottom: 12px;
+      color: #AAAAAA;
+      letter-spacing: 0.1em;
+    }
+
+    .input, .textarea {
+      width: 100%;
+      padding: 16px 20px;
+      font-size: 0.9rem;
+      font-family: 'Zen Maru Gothic', serif;
+      border: 1px solid rgba(170, 170, 170, 0.2);
+      background: #FFFFFF;
+      color: #888888;
+      transition: all 0.3s ease;
+      font-weight: 300;
+    }
+
+    .input:focus, .textarea:focus {
+      outline: none;
+      border-color: rgba(170, 170, 170, 0.4);
+    }
+
+    .textarea {
+      min-height: 120px;
+      resize: vertical;
+      line-height: 1.8;
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      color: #AAAAAA;
+      transition: color 0.3s ease;
+    }
+
+    .checkbox-label:hover {
+      color: #888888;
+    }
+
+    .checkbox {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+
+    /* 利用規約同意 */
+    .terms-agreement {
+      margin-top: 60px;
+      padding: 30px;
+      border: 1px solid rgba(170, 170, 170, 0.15);
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 2px;
+    }
+
+    .terms-agreement label {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      cursor: pointer;
+    }
+
+    .terms-link {
+      background: none;
+      border: none;
+      text-decoration: underline;
+      color: #999999;
+      cursor: pointer;
+      font-size: inherit;
+      font-family: inherit;
+      padding: 0;
+      transition: color 0.3s ease;
+    }
+
+    .terms-link:hover {
+      color: #777777;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 80px;
+      flex-wrap: wrap;
+    }
+
+    /* ========================================
+       カルテ表示
+    ======================================== */
+    .carte-header {
+      text-align: center;
+      margin-bottom: 80px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(170, 170, 170, 0.1);
+    }
+
+    .carte-nui-name {
+      font-size: 1.3rem;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      margin-bottom: 20px;
+      color: #AAAAAA;
+    }
+
+    .carte-moco {
+      font-size: 0.75rem;
+      color: #CCCCCC;
+      letter-spacing: 0.15em;
+    }
+
+    .carte-body {
+      font-size: 1rem;
+      line-height: 2.5;
+      color: #999999;
+      white-space: pre-line;
+      margin-bottom: 60px;
+      text-align: center;
+    }
+
+    .carte-note {
+      font-size: 0.7rem;
+      line-height: 2;
+      color: #CCCCCC;
+      font-style: italic;
+      text-align: center;
+      margin: 60px auto;
+    }
+
+    .carte-divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(170, 170, 170, 0.15), transparent);
+      margin: 80px 0;
+    }
+
+    .carte-transition {
+      text-align: center;
+      margin: 80px auto;
+    }
+
+    .carte-transition-text {
+      font-size: 0.95rem;
+      line-height: 2.2;
+      color: #AAAAAA;
+      margin-bottom: 50px;
+    }
+
+    /* 寄り添いモコの表示（色を使用） */
+    .yorisoi-section {
+      margin: 80px auto;
+      max-width: 600px;
+    }
+
+    .yorisoi-card {
+      padding: 40px;
+      border: 1px solid rgba(170, 170, 170, 0.2);
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .yorisoi-name {
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .yorisoi-ear {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .yorisoi-phrase {
+      font-size: 1.1rem;
+      line-height: 2.2;
+      color: #888888;
+      margin-bottom: 20px;
+    }
+
+    .yorisoi-description {
+      font-size: 0.8rem;
+      line-height: 1.8;
+      color: #BBBBBB;
+    }
+
+    /* 処方カード */
+    .prescription-card {
+      margin: 60px auto;
+      max-width: 350px;
+      aspect-ratio: 1.6;
+      border: 1px solid rgba(170, 170, 170, 0.2);
+      background: #FFFFFF;
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .prescription-card-phrase {
+      font-size: 0.95rem;
+      line-height: 2.2;
+      color: #999999;
+    }
+
+    /* ========================================
+       サロン案内ページ
+    ======================================== */
+    .salon-info-title {
+      font-size: 1.2rem;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      margin-bottom: 30px;
+      text-align: center;
+      color: #AAAAAA;
+    }
+
+    .salon-info-description {
+      font-size: 0.95rem;
+      line-height: 2.5;
+      color: #BBBBBB;
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .salon-box {
+      padding: 60px 40px;
+      border: 1px solid rgba(170, 170, 170, 0.15);
+      margin-bottom: 60px;
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    .salon-box-title {
+      font-size: 0.9rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      margin-bottom: 30px;
+      color: #AAAAAA;
+      text-align: center;
+    }
+
+    .salon-items {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .salon-item {
+      padding: 20px;
+      border-left: 2px solid rgba(170, 170, 170, 0.2);
+      background: rgba(255, 255, 255, 0.3);
+      font-size: 0.85rem;
+      color: #AAAAAA;
+    }
+
+    .salon-price {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .salon-price-amount {
+      font-size: 1.3rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      margin-bottom: 15px;
+      color: #999999;
+    }
+
+    .salon-price-note {
+      font-size: 0.75rem;
+      color: #CCCCCC;
+    }
+
+    .salon-note {
+      font-size: 0.75rem;
+      line-height: 2;
+      color: #CCCCCC;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    /* 寄り添いモコオプション */
+    .yorisoi-option-section {
+      margin: 100px auto 60px;
+      max-width: 600px;
+    }
+
+    .yorisoi-option-title {
+      font-size: 0.95rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      margin-bottom: 30px;
+      color: #AAAAAA;
+      text-align: center;
+    }
+
+    .yorisoi-option-description {
+      font-size: 0.85rem;
+      line-height: 2.2;
+      color: #BBBBBB;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .yorisoi-option-box {
+      padding: 40px;
+      border: 1px solid rgba(170, 170, 170, 0.15);
+      margin-bottom: 30px;
+    }
+
+    .yorisoi-options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .yorisoi-option-item {
+      padding: 20px;
+      border: 1px solid rgba(170, 170, 170, 0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #FFFFFF;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .yorisoi-option-item:hover {
+      border-color: rgba(170, 170, 170, 0.3);
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .yorisoi-option-name {
+      font-size: 0.85rem;
+      color: #AAAAAA;
+    }
+
+    .yorisoi-option-price {
+      font-size: 0.9rem;
+      color: #999999;
+    }
+
+    /* ========================================
+       決済ページ
+    ======================================== */
+    .payment-summary {
+      background: rgba(255, 255, 255, 0.5);
+      border: 1px solid rgba(170, 170, 170, 0.15);
+      padding: 40px;
+      margin-bottom: 60px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .payment-summary-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(170, 170, 170, 0.1);
+      font-size: 0.9rem;
+      color: #999999;
+    }
+
+    .payment-summary-row:last-child {
+      border-bottom: none;
+      font-size: 1.1rem;
+      padding-top: 25px;
+      margin-top: 15px;
+      border-top: 1px solid rgba(170, 170, 170, 0.2);
+      color: #888888;
+    }
+
+    .payment-info-box {
+      padding: 30px;
+      border: 1px solid rgba(170, 170, 170, 0.1);
+      background: rgba(255, 255, 255, 0.3);
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .payment-info-text {
+      font-size: 0.85rem;
+      line-height: 2;
+      color: #AAAAAA;
+      margin-bottom: 30px;
+    }
+
+    .payment-features {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .payment-features-text {
+      font-size: 0.7rem;
+      line-height: 2;
+      color: #CCCCCC;
+    }
+
+    /* ========================================
+       法的ページ（利用規約等）
+    ======================================== */
+    .legal-section {
+      margin-bottom: 60px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(170, 170, 170, 0.08);
+    }
+
+    .legal-section:last-of-type {
+      border-bottom: none;
+    }
+
+    .legal-label {
+      font-size: 0.9rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      margin-bottom: 20px;
+      color: #999999;
+    }
+
+    .legal-content {
+      font-size: 0.8rem;
+      line-height: 2.2;
+      color: #AAAAAA;
+    }
+
+    .legal-content strong {
+      font-weight: 400;
+      color: #999999;
+    }
+
+    /* ========================================
+       アニメーション
+    ======================================== */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      animation: fadeIn 1s ease-out;
+    }
+
+    /* ========================================
+       フッターリンク
+    ======================================== */
+    .footer-links {
+      text-align: center;
+      margin-top: 100px;
+      padding-top: 50px;
+      border-top: 1px solid rgba(170, 170, 170, 0.08);
+    }
+
+    .footer-links-container {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ========================================
+       管理画面
+    ======================================== */
+    .admin-login {
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .admin-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 40px;
+    }
+
+    .admin-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 60px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid rgba(170, 170, 170, 0.1);
+    }
+
+    .admin-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+
+    .stat-card {
+      padding: 30px;
+      border: 1px solid rgba(170, 170, 170, 0.15);
+      background: rgba(255, 255, 255, 0.5);
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 400;
+      color: #888888;
+      margin-bottom: 10px;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: #BBBBBB;
+      letter-spacing: 0.1em;
+    }
+
+    .carte-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .carte-list-item {
+      padding: 25px;
+      border: 1px solid rgba(170, 170, 170, 0.15);
+      background: #FFFFFF;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .carte-list-item:hover {
+      border-color: rgba(170, 170, 170, 0.3);
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .carte-info {
+      flex: 1;
+    }
+
+    .carte-name {
+      font-size: 1rem;
+      color: #888888;
+      margin-bottom: 8px;
+    }
+
+    .carte-date {
+      font-size: 0.75rem;
+      color: #CCCCCC;
+    }
+
+    .carte-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .carte-detail {
+      padding: 40px;
+      border: 1px solid rgba(170, 170, 170, 0.15);
+      background: rgba(255, 255, 255, 0.5);
+      margin-bottom: 30px;
+    }
+
+    .carte-detail-section {
+      margin-bottom: 30px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid rgba(170, 170, 170, 0.08);
+    }
+
+    .carte-detail-section:last-child {
+      border-bottom: none;
+    }
+
+    .carte-detail-label {
+      font-size: 0.8rem;
+      color: #BBBBBB;
+      margin-bottom: 10px;
+      letter-spacing: 0.1em;
+    }
+
+    .carte-detail-content {
+      font-size: 0.9rem;
+      color: #888888;
+      line-height: 2;
+    }
+
+    .admin-tabs {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 40px;
+      border-bottom: 1px solid rgba(170, 170, 170, 0.1);
+    }
+
+    .admin-tab {
+      padding: 15px 30px;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      font-size: 0.85rem;
+      color: #BBBBBB;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Zen Maru Gothic', serif;
+    }
+
+    .admin-tab.active {
+      color: #888888;
+      border-bottom-color: #AAAAAA;
+    }
+
+    .admin-tab:hover {
+      color: #999999;
+    }
+
+    .settings-section {
+      margin-bottom: 60px;
+      padding: 40px;
+      border: 1px solid rgba(170, 170, 170, 0.15);
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    .settings-title {
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      margin-bottom: 30px;
+      color: #888888;
+      text-align: center;
+    }
+
+    .settings-item {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      padding: 20px;
+      border: 1px solid rgba(170, 170, 170, 0.1);
+      margin-bottom: 15px;
+      background: #FFFFFF;
+    }
+
+    .settings-item-label {
+      flex: 1;
+      font-size: 0.85rem;
+      color: #AAAAAA;
+    }
+
+    .settings-item-input {
+      width: 200px;
+      padding: 12px 16px;
+      font-size: 0.85rem;
+      font-family: 'Zen Maru Gothic', serif;
+      border: 1px solid rgba(170, 170, 170, 0.2);
+      background: #FFFFFF;
+      color: #888888;
+    }
+
+    .settings-item-input:focus {
+      outline: none;
+      border-color: rgba(170, 170, 170, 0.4);
+    }
+
+    .settings-item-textarea {
+      flex: 1;
+      padding: 12px 16px;
+      font-size: 0.85rem;
+      font-family: 'Zen Maru Gothic', serif;
+      border: 1px solid rgba(170, 170, 170, 0.2);
+      background: #FFFFFF;
+      color: #888888;
+      min-height: 60px;
+      resize: vertical;
+    }
+
+    .settings-item-textarea:focus {
+      outline: none;
+      border-color: rgba(170, 170, 170, 0.4);
+    }
+
+    /* ========================================
+       レスポンシブ
+    ======================================== */
+    @media (max-width: 768px) {
+      .container {
+        padding: 60px 20px;
+      }
+
+      .welcome {
+        padding-top: 80px;
+      }
+
+      .welcome-title {
+        font-size: 1.1rem;
+        margin-bottom: 60px;
+      }
+
+      .kirameki-visual {
+        width: 160px;
+        height: 160px;
+      }
+
+      .button {
+        padding: 16px 40px;
+        font-size: 0.85rem;
+      }
+
+      .action-buttons {
+        flex-direction: column;
+      }
+
+      .admin-container {
+        padding: 40px 20px;
+      }
+
+      .admin-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .carte-list-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+
+      .carte-actions {
+        width: 100%;
+        justify-content: flex-end;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script type="module">
+    // ========================================
+    // データ定義
+    // ========================================
+    
+    // 寄り添いモコの定義（耳の色で識別）
+    const YORISOI_MOCO_TYPES = {
+      SUKIMA: {
+        id: 'sukima',
+        name: 'すきまモコ',
+        earColor: '#C8E6C9', // 若葉色
+        phrase: '静かに。',
+        description: '考えすぎて休まらない時に',
+        keywords: ['考え', '思考', '頭', '休まらない', 'ぐるぐる']
+      },
+      HOKORORBI: {
+        id: 'hokororbi',
+        name: 'ほころびモコ',
+        earColor: '#F5F5DC', // 生成り
+        phrase: '少し、ゆるんでもいいだね〜',
+        description: '緊張や感情疲労がある時に',
+        keywords: ['緊張', '張', '硬', 'ゆるめ', '力', '気遣']
+      },
+      OWARI: {
+        id: 'owari',
+        name: 'おわりモコ',
+        earColor: '#E0E0E0', // 薄灰
+        phrase: 'ここまででいいのだモコ',
+        description: '区切りがつかない時に',
+        keywords: ['終わ', '区切', '続け', '背負', 'やめられない']
+      },
+      DAIJOUBU: {
+        id: 'daijoubu',
+        name: 'だいじょうぶモコ',
+        earColor: '#B3E5FC', // 水色
+        phrase: 'いまのままでも、ちゃんと大丈夫',
+        description: '不安や心配がある時に',
+        keywords: ['不安', '心配', '壊れ', '確かめ', '弱']
+      },
+      SOBA: {
+        id: 'soba',
+        name: 'そばモコ',
+        earColor: '#FFE4E1', // 薄桜
+        phrase: 'そばに、いるよ',
+        description: '寂しさを感じる時に',
+        keywords: ['寂し', '孤独', 'ひとり', '失われ', '離れ']
+      },
+      SHIRASE: {
+        id: 'shirase',
+        name: 'しらせモコ',
+        earColor: '#FFE082', // 金
+        phrase: '気づいていなくても、大丈夫',
+        description: '無自覚な疲労がある時に',
+        keywords: ['気づかない', '無自覚', '知らない', '見えない', '守']
+      }
+    };
+
+    // カルテフレーズ
+    const CARTE_PHRASES = {
+      STATE_ACCEPTANCE: [
+        'このぬいは、いまもちゃんと続いているモコ。',
+        'このぬいは、今日も役割の中にいるモコ。',
+        'このぬいは、止まらずにここまで来たモコ。',
+        'このぬいは、同じ場所で守り続けているモコ。'
+      ],
+      USED_POWER: [
+        'それは、大切なものを壊さないために使ってきた力モコ。',
+        'それは、日々を優しく保つために働いてきた力モコ。',
+        'それは、誰かをそっと守るために続けてきた力モコ。',
+        'それは、当たり前の日常を支えてきた力モコ。'
+      ],
+      MISSING_POWER: [
+        'いまは、休む感覚が少し遠くにあるだけかもしれないモコ。',
+        'いまは、区切りをつける力が手前にないだけかもしれないモコ。',
+        'いまは、ほっと息をつく余白が見えにくいだけかもしれないモコ。',
+        'いまは、気づく前の静かな時間にいるだけかもしれないモコ。'
+      ],
+      EXISTENCE_AFFIRMATION: [
+        'このぬいは、壊れていないモコ。',
+        'このぬいは、ちゃんと光を放っているモコ。',
+        'このぬいは、ここに確かにいるモコ。',
+        'このぬいは、失われていないモコ。'
+      ],
+      SUPPORT_DIRECTION: [
+        '今日は、そっと余白を近くに置いてみるモコ。',
+        '今日は、区切りを意識しなくても大丈夫モコ。',
+        '今日は、力を抜く感覚に触れなくても構わないモコ。',
+        '今日は、何もしない時間を一緒に過ごすモコ。'
+      ]
+    };
+
+    // ========================================
+    // ロジック関数
+    // ========================================
+    
+    // 寄り添いモコの自動選定
+    function selectYorisoiMoco(questionnaire) {
+      const allText = `${questionnaire.recentCondition} ${questionnaire.concerns} ${questionnaire.fatigueType.join(' ')}`.toLowerCase();
+      
+      const scores = Object.values(YORISOI_MOCO_TYPES).map(moco => {
+        let score = 0;
+        moco.keywords.forEach(keyword => {
+          if (allText.includes(keyword)) score += 1;
+        });
+        return { moco, score };
+      });
+      
+      scores.sort((a, b) => b.score - a.score);
+      return scores[0].score > 0 ? scores[0].moco : YORISOI_MOCO_TYPES.SUKIMA;
+    }
+
+    // カルテテキスト生成
+    function generateCarteText(questionnaire) {
+      return {
+        stateAcceptance: CARTE_PHRASES.STATE_ACCEPTANCE[0],
+        usedPower: CARTE_PHRASES.USED_POWER[0],
+        missingPower: CARTE_PHRASES.MISSING_POWER[0],
+        existenceAffirmation: CARTE_PHRASES.EXISTENCE_AFFIRMATION[0],
+        supportDirection: CARTE_PHRASES.SUPPORT_DIRECTION[0]
+      };
+    }
+
+    // カルテ全文の組み立て
+    function assembleCarteFullText(carteText) {
+      return `${carteText.stateAcceptance}
+
+${carteText.usedPower}
+
+${carteText.missingPower}
+
+${carteText.existenceAffirmation}
+
+${carteText.supportDirection}`;
+    }
+
+    // カルテ導入文（無料部分）
+    function getCarteIntroText(carteText) {
+      return `${carteText.stateAcceptance}
+
+${carteText.usedPower}
+
+でも、まだ言葉にされていないモコ。`;
+    }
+
+    // ========================================
+    // ストレージ関数（簡易版）
+    // ========================================
+    const STORAGE_PREFIX = 'moco_shinseisho_';
+
+    async function saveCarte(carteData) {
+      try {
+        const id = carteData.id || `nui_${Date.now()}`;
+        const key = `${STORAGE_PREFIX}carte_${id}`;
+        const dataToSave = { ...carteData, id, savedAt: new Date().toISOString() };
+        
+        if (window.storage) {
+          try {
+            const result = await window.storage.set(key, JSON.stringify(dataToSave), false);
+            return result ? { success: true, id } : { success: false };
+          } catch (storageError) {
+            console.log('ストレージ保存失敗。sessionStorageにフォールバック');
+            sessionStorage.setItem(key, JSON.stringify(dataToSave));
+            return { success: true, id };
+          }
+        } else {
+          // フォールバック: sessionStorage
+          sessionStorage.setItem(key, JSON.stringify(dataToSave));
+          return { success: true, id };
+        }
+      } catch (error) {
+        console.log('カルテ保存エラー:', error.message);
+        return { success: false, error: error.message };
+      }
+    }
+
+    // ========================================
+    // アプリケーション状態
+    // ========================================
+    const state = {
+      view: 'welcome',
+      questionnaire: {
+        name: '',
+        age: '',
+        personality: '',
+        recentCondition: '',
+        concerns: '',
+        fatigueType: [],
+        role: ''
+      },
+      selectedYorisoiMoco: null,
+      carteText: null,
+      currentCarteId: null,
+      agreedToTerms: false,
+      selectedYorisoiOption: null, // { period: '7day'|'1month'|'forever', price: 1500|2500|2000 }
+      isAdminAuthenticated: false,
+      carteList: [],
+      selectedCarteForView: null,
+      selectedCarteForEdit: null,
+      adminCurrentTab: 'cartes', // 'cartes' | 'settings'
+      // 顧客情報
+      customerInfo: {
+        name: '',
+        email: '',
+        phone: '',
+        postalCode: '',
+        address: '',
+        notes: ''
+      },
+      // 管理画面用設定データ
+      settings: {
+        yorisoiOptions: [
+          { id: '7day', label: '7日間', price: 1500 },
+          { id: '1month', label: '1ヶ月', price: 2500 },
+          { id: 'forever', label: '永遠（買取）', price: 2000 }
+        ],
+        hitoyasumiItems: [
+          { id: 'pound_cake', name: '季節のフルーツパウンド', description: '地を整える' },
+          { id: 'madeleine', name: 'りんごのマドレーヌ', description: '風をやわらかくする' },
+          { id: 'kohaku', name: '琥珀糖', description: '風を透かす' },
+          { id: 'dry_tea', name: 'ドライフルーツティー', description: '間をつくる' },
+          { id: 'dry_soup', name: 'ドライ野菜スープ', description: '地と間を温める' }
+        ]
+      }
+    };
+
+    // ========================================
+    // レンダリング関数
+    // ========================================
+    
+    function renderWelcome() {
+      return `
+        <div class="container welcome fade-in">
+          <h1 class="welcome-title">ぬいぐるみ心整所 モコ</h1>
+          
+          <!-- きらめきモコのビジュアル -->
+          <div class="kirameki-visual">
+            <img src="kirameki-moco.png" alt="きらめきモコ" style="width: 200px; height: 200px; object-fit: contain;">
+          </div>
+
+          <!-- キャッチコピー -->
+          <p class="welcome-catchphrase">
+            ここは、<br>
+            ぬいぐるみのための診療所。<br>
+            そっと整える、心整所です。
+          </p>
+
+          <p class="welcome-note">※医療行為は行っていません</p>
+
+          <!-- 宣伝文句 -->
+          <div class="welcome-description">
+            <p class="welcome-description-text">
+              ぬいぐるみを診ます。<br>
+              治しません。<br>
+              ただ、整えます。
+            </p>
+          </div>
+
+          <!-- きらめきモコの説明 -->
+          <div class="kirameki-intro">
+            <p class="kirameki-intro-text">
+              きらめきモコは、<br>
+              おしゃべりはしません。<br>
+              <br>
+              目を閉じて、<br>
+              ぬいぐるみの声を<br>
+              そっと聞いています。
+            </p>
+          </div>
+
+          <!-- ナビゲーションボタン -->
+          <div class="nav-buttons">
+            <button class="button button-primary" onclick="app.showQuestionnaireStart()">
+              問診をはじめる
+            </button>
+          </div>
+
+          <!-- フッターリンク -->
+          <div class="footer-links">
+            <div class="footer-links-container">
+              <button class="button button-small" onclick="app.showTerms()">
+                利用規約
+              </button>
+              <button class="button button-small" onclick="app.showLegal()">
+                特定商取引法に基づく表記
+              </button>
+              <button class="button button-small" onclick="app.showPrivacy()">
+                プライバシーポリシー
+              </button>
+            </div>
+            <div style="margin-top: 30px;">
+              <button class="button button-small" onclick="app.showAdminLogin()" style="font-size: 0.65rem; opacity: 0.3;">
+                管理画面
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderQuestionnaireStart() {
+      return `
+        <div class="container questionnaire-start fade-in">
+          <div style="margin-bottom: 100px;">
+            <button class="button button-small" onclick="app.showWelcome()">
+              ← トップへ戻る
+            </button>
+          </div>
+
+          <p class="questionnaire-start-text">
+            ぬいの様子を、<br>
+            少しだけ聞かせてください。
+          </p>
+
+          <p class="questionnaire-start-note">
+            話さなくても大丈夫です。<br>
+            全部答えなくてもよいです。
+          </p>
+
+          <div class="nav-buttons">
+            <button class="button button-primary" onclick="app.showQuestionnaire()">
+              問診を始める
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderQuestionnaire() {
+      return `
+        <div class="container fade-in">
+          <h2 class="title">問診票</h2>
+          <p class="text text-center" style="margin-bottom: 80px; color: #BBBBBB;">
+            ぬいぐるみのことを、教えてください。
+          </p>
+          
+          <div class="form-group">
+            <label class="label">名前</label>
+            <input 
+              id="input-name"
+              class="input"
+              value="${state.questionnaire.name}"
+              placeholder="ぬいの名前を入力してください"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="label">年齢（イメージ）</label>
+            <input 
+              id="input-age"
+              class="input"
+              value="${state.questionnaire.age}"
+              placeholder="例: 5歳くらい"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="label">性格</label>
+            <textarea 
+              id="input-personality"
+              class="textarea"
+              placeholder="どんな性格ですか？"
+            >${state.questionnaire.personality}</textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="label">最近の様子</label>
+            <textarea 
+              id="input-recent"
+              class="textarea"
+              placeholder="最近、どのような様子ですか？"
+            >${state.questionnaire.recentCondition}</textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="label">気になる変化</label>
+            <textarea 
+              id="input-concerns"
+              class="textarea"
+              placeholder="何か気になることはありますか？"
+            >${state.questionnaire.concerns}</textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="label">疲れの種類</label>
+            <div class="checkbox-group">
+              ${['身体的な疲れ', '精神的な疲れ', '緊張', '考えすぎ', '終わらせられない', '気を張っている', '距離感', 'その他'].map(type => `
+                <label class="checkbox-label">
+                  <input 
+                    type="checkbox"
+                    class="checkbox"
+                    data-fatigue-type="${type}"
+                    ${state.questionnaire.fatigueType.includes(type) ? 'checked' : ''}
+                  />
+                  ${type}
+                </label>
+              `).join('')}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="label">ぬいの役割</label>
+            <textarea 
+              id="input-role"
+              class="textarea"
+              placeholder="このぬいは、どのような役割を持っていますか？（代弁、守護、など）"
+            >${state.questionnaire.role}</textarea>
+          </div>
+
+          <!-- 利用規約同意 -->
+          <div class="terms-agreement">
+            <label>
+              <input 
+                type="checkbox"
+                id="terms-checkbox"
+                style="width: 18px; height: 18px; cursor: pointer; flex-shrink: 0;"
+                ${state.agreedToTerms ? 'checked' : ''}
+              />
+              <div style="font-size: 0.8rem; line-height: 2; color: #AAAAAA;">
+                <button 
+                  onclick="app.showTerms(); event.preventDefault();" 
+                  class="terms-link"
+                >利用規約</button>、
+                <button 
+                  onclick="app.showPrivacy(); event.preventDefault();" 
+                  class="terms-link"
+                >プライバシーポリシー</button>
+                に同意します
+              </div>
+            </label>
+          </div>
+
+          <div class="action-buttons">
+            <button class="button" onclick="app.showWelcome()">
+              戻る
+            </button>
+            <button 
+              class="button button-primary" 
+              onclick="app.submitQuestionnaire()"
+              ${!state.questionnaire.name || !state.agreedToTerms ? 'disabled' : ''}
+            >
+              問診を終える
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderCarteIntro() {
+      if (!state.carteText) return '';
+      
+      const introText = getCarteIntroText(state.carteText);
+      
+      return `
+        <div class="container fade-in">
+          <div class="carte-header">
+            <div class="carte-nui-name">${state.questionnaire.name}</div>
+            <div class="carte-moco">きらめきモコより</div>
+          </div>
+          
+          <div class="carte-body">
+            ${introText}
+          </div>
+
+          <div class="carte-note">
+            ※ ここに並ぶ言葉は、きらめきモコが<br>
+            　 ぬいぐるみの声を受け取って、<br>
+            　 あとから書き留めたものモコ。
+          </div>
+
+          <div class="carte-divider"></div>
+          
+          <div class="carte-transition">
+            <p class="carte-transition-text">
+              預かることで、<br>
+              ようやく触れられる言葉があるモコ。
+            </p>
+
+            <!-- 有料プラン説明ボックス -->
+            <div style="max-width: 500px; margin: 60px auto 50px; padding: 40px; border: 1px solid rgba(170, 170, 170, 0.2); background: rgba(255, 255, 255, 0.5);">
+              <div style="font-size: 0.9rem; font-weight: 400; letter-spacing: 0.15em; margin-bottom: 25px; color: #AAAAAA; text-align: center;">
+                ぬいお預かりサロン
+              </div>
+              
+              <div style="font-size: 0.85rem; line-height: 2.2; color: #BBBBBB; text-align: center; margin-bottom: 30px;">
+                ぬいを、そっと預かります。<br>
+                整うのは、そのあとです。
+              </div>
+
+              <div style="border-top: 1px solid rgba(170, 170, 170, 0.1); padding-top: 25px;">
+                <div style="font-size: 0.75rem; line-height: 2; color: #CCCCCC; text-align: center; margin-bottom: 20px;">
+                  サロンで提供されるもの
+                </div>
+                <div style="font-size: 0.8rem; line-height: 2; color: #AAAAAA; text-align: center;">
+                  • カルテ全文（①〜⑤すべて）<br>
+                  • 存在の肯定フレーズ<br>
+                  • きらめきモコの診療写真<br>
+                  <span style="font-size: 0.7rem; color: #CCCCCC;">（お預かり中の経過観察として随時メール送信）</span><br>
+                  • ひとやすみの用意<br>
+                  • 寄り添いモコの選定<br>
+                  • 処方カード（名刺サイズ）<br>
+                  • 往復送料込み
+                </div>
+              </div>
+
+              <div style="text-align: center; margin-top: 30px; padding-top: 25px; border-top: 1px solid rgba(170, 170, 170, 0.1);">
+                <div style="font-size: 1.1rem; color: #999999; margin-bottom: 8px;">
+                  ¥5,500
+                </div>
+                <div style="font-size: 0.7rem; color: #CCCCCC;">
+                  （税込・送料込み）
+                </div>
+              </div>
+            </div>
+            
+            <div style="display: flex; flex-direction: column; gap: 20px; align-items: center; margin-bottom: 40px;">
+              <button class="button button-primary" onclick="app.showSalonInfo()" style="min-width: 280px;">
+                続きを見る（ぬいお預かりサロン）
+              </button>
+              <button class="button button-secondary" onclick="app.showWelcome()" style="min-width: 280px;">
+                今日は、ここまでにする
+              </button>
+            </div>
+            
+            <div style="font-size: 0.7rem; line-height: 2; color: #CCCCCC; text-align: center;">
+              続きを選ばなくても、<br>
+              失われるものはないモコ。
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderSalonInfo() {
+      if (!state.carteText || !state.selectedYorisoiMoco) return '';
+      
+      return `
+        <div class="container fade-in">
+          <div style="text-align: center; margin-bottom: 80px;">
+            <h2 class="salon-info-title">
+              ぬいお預かりサロン
+            </h2>
+            <p class="salon-info-description">
+              ぬいを、<br>
+              そっと預かります。<br>
+              <br>
+              整うのは、<br>
+              そのあとです。
+            </p>
+          </div>
+
+          <div class="salon-box">
+            <div class="salon-box-title">
+              サロンで提供されるもの
+            </div>
+            <div class="salon-items">
+              <div class="salon-item">
+                ぬいのカルテ作成
+              </div>
+              <div class="salon-item">
+                きらめきモコの問診
+              </div>
+              <div class="salon-item">
+                きらめきモコの診療写真<br>
+                <span style="font-size: 0.75rem; color: #CCCCCC;">（お預かり中の経過観察として登録メールアドレスへ随時送信）</span>
+              </div>
+              <div class="salon-item">
+                ひとやすみの用意
+              </div>
+              <div class="salon-item">
+                寄り添いモコの選定
+              </div>
+            </div>
+            
+            <div class="salon-box-title" style="margin-top: 50px;">
+              基本料に含まれるもの
+            </div>
+            <div class="salon-items">
+              <div class="salon-item">
+                カルテ全文
+              </div>
+              <div class="salon-item">
+                ひとやすみの用意
+              </div>
+              <div class="salon-item">
+                ぬいお預かり対応
+              </div>
+              <div class="salon-item">
+                往復送料
+              </div>
+            </div>
+            
+            <div class="salon-price">
+              <div class="salon-price-amount">
+                仮価格 ¥5,500
+              </div>
+              <div class="salon-price-note">
+                送料込み（往復）<br>
+                きらめきモコが、ここから預かるモコ
+              </div>
+            </div>
+            
+            <div class="salon-note">
+              これは診断ではないモコ。<br>
+              時間と手をかけて、整えているモコ。
+            </div>
+            
+            <div style="text-align: center;">
+              <button class="button button-primary" onclick="app.showHitoyasumi()">
+                ぬいをそっと預ける
+              </button>
+            </div>
+          </div>
+
+          <!-- きらめきモコの写真 -->
+          <div style="text-align: center; margin: 80px auto 0; max-width: 400px;">
+            <img 
+              src="kirameki-moco-salon.png" 
+              alt="きらめきモコ" 
+              style="
+                width: 100%;
+                height: auto;
+                border-radius: 20px;
+                opacity: 0.95;
+                filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.08));
+              "
+            />
+          </div>
+
+          <div style="text-align: center; margin-top: 40px;">
+            <button class="button button-small" onclick="app.backToCarte()">
+              ← 戻る
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderHitoyasumi() {
+      return `
+        <div class="container fade-in">
+          <div class="hitoyasumi-section">
+            <h2 class="salon-info-title">
+              ひとやすみの用意
+            </h2>
+            
+            <div class="hitoyasumi-note">
+              整うための、小さな支えモコ。<br>
+              お菓子として売るのではなく、<br>
+              休む時間の一部として用意するモコ。
+            </div>
+
+            <div class="hitoyasumi-items">
+              ${state.settings.hitoyasumiItems.map(item => `
+                <div class="hitoyasumi-item">
+                  ${item.name}<br>
+                  <span style="font-size: 0.75rem; color: #CCCCCC;">${item.description}</span>
+                </div>
+              `).join('')}
+            </div>
+
+            <div style="text-align: center; margin-top: 60px;">
+              <button class="button button-primary" onclick="app.showYorisoiOptions()">
+                次へ進む
+              </button>
+            </div>
+          </div>
+
+          <div style="text-align: center; margin-top: 40px;">
+            <button class="button button-small" onclick="app.showSalonInfo()">
+              ← 戻る
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderYorisoiOptions() {
+      if (!state.selectedYorisoiMoco) return '';
+      
+      return `
+        <div class="container fade-in">
+          <!-- 寄り添いモコの表示（色が初めて登場） -->
+          <div style="text-align: center; margin-bottom: 100px;">
+            <div style="font-size: 0.9rem; line-height: 2.5; color: #BBBBBB; margin-bottom: 60px;">
+              今回、<br>
+              そばにいる精霊は
+            </div>
+            
+            <div class="yorisoi-card">
+              <div class="yorisoi-name">
+                <span class="yorisoi-ear" style="background-color: ${state.selectedYorisoiMoco.earColor};"></span>
+                ${state.selectedYorisoiMoco.name}
+              </div>
+              <div class="yorisoi-phrase">
+                ${state.selectedYorisoiMoco.phrase}
+              </div>
+              <div class="yorisoi-description">
+                ${state.selectedYorisoiMoco.description}
+              </div>
+            </div>
+          </div>
+
+          <!-- 寄り添いモコオプション -->
+          <div class="yorisoi-option-section">
+            <div style="height: 1px; background: linear-gradient(to right, transparent, rgba(170, 170, 170, 0.15), transparent); margin-bottom: 60px;"></div>
+            
+            <div class="yorisoi-option-title">
+              追加オプション
+            </div>
+            <div class="yorisoi-option-description">
+              必要な方には、<br>
+              小さな精霊が<br>
+              そばにいます。
+            </div>
+
+            <div class="yorisoi-option-box">
+              <div style="font-size: 0.9rem; font-weight: 400; letter-spacing: 0.15em; margin-bottom: 20px; color: #AAAAAA; text-align: center;">
+                寄り添いモコ（物理同封）
+              </div>
+              <div style="font-size: 0.8rem; line-height: 2; color: #BBBBBB; margin-bottom: 30px; text-align: center;">
+                ${state.selectedYorisoiMoco.name}を、日常に同行させることができるモコ。<br>
+                診療とは別の、寄り添い専用の精霊として、<br>
+                希望される期間お貸しするモコ。
+              </div>
+              <div class="yorisoi-options-list">
+                ${state.settings.yorisoiOptions.map(option => `
+                  <div class="yorisoi-option-item" onclick="app.selectYorisoiOption('${option.id}', ${option.price}, '${option.label}')">
+                    <div class="yorisoi-option-name">${option.label}</div>
+                    <div class="yorisoi-option-price">¥${option.price.toLocaleString()}</div>
+                  </div>
+                `).join('')}
+              </div>
+              <div style="font-size: 0.7rem; line-height: 2; color: #CCCCCC; text-align: center;">
+                ※ 寄り添いモコは任意モコ。<br>
+                ※ 選ばなくても、整いは成立するモコ。
+              </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+              <button class="button button-primary" onclick="app.showPayment()">
+                お支払いへ進む
+              </button>
+            </div>
+          </div>
+
+          <div style="text-align: center; margin-top: 40px;">
+            <button class="button button-small" onclick="app.showHitoyasumi()">
+              ← 戻る
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderPayment() {
+      const salonFee = 5500; // 仮価格
+      const yorisoiOption = state.selectedYorisoiOption;
+      const total = salonFee + (yorisoiOption ? yorisoiOption.price : 0);
+
+      return `
+        <div class="container fade-in">
+          <div style="text-align: center; margin-bottom: 60px;">
+            <h2 class="salon-info-title">
+              お支払い
+            </h2>
+            <p style="font-size: 0.8rem; line-height: 2; color: #CCCCCC;">
+              Squareの安全な決済ページで<br>
+              お支払いいただけます
+            </p>
+          </div>
+
+          <div class="payment-summary">
+            <div class="payment-summary-row">
+              <span>ぬいお預かりサロン</span>
+              <span>¥${salonFee.toLocaleString()}</span>
+            </div>
+            ${yorisoiOption ? `
+              <div class="payment-summary-row">
+                <span>寄り添いモコ（${yorisoiOption.label}）</span>
+                <span>¥${yorisoiOption.price.toLocaleString()}</span>
+              </div>
+            ` : ''}
+            <div class="payment-summary-row">
+              <span>合計</span>
+              <span>¥${total.toLocaleString()}</span>
+            </div>
+          </div>
+
+          <div class="payment-info-box">
+            <div class="payment-info-text">
+              「お支払いページへ」ボタンをクリックすると、<br>
+              Squareの決済ページに移動します。<br>
+              <br>
+              決済完了後、自動的にこのページに戻ります。
+            </div>
+
+            <button 
+              class="button button-primary" 
+              onclick="app.proceedToSquareCheckout()"
+              style="width: 100%; padding: 20px; font-size: 1rem; max-width: 400px;"
+            >
+              お支払いページへ
+            </button>
+          </div>
+
+          <div class="payment-features">
+            <div class="payment-features-text">
+              ✓ クレジットカード・デビットカード対応<br>
+              ✓ SSL暗号化通信で安全<br>
+              ✓ 領収書は自動送信
+            </div>
+          </div>
+
+          <div style="text-align: center; margin-top: 40px;">
+            <button 
+              class="button button-small" 
+              onclick="app.showYorisoiOptions()"
+            >
+              ← 戻る
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderCustomerInfo() {
+      return `
+        <div class="container fade-in">
+          <div style="text-align: center; margin-bottom: 60px;">
+            <h2 class="salon-info-title">
+              お客様情報・送付先入力
+            </h2>
+            <p style="font-size: 0.85rem; line-height: 2.2; color: #BBBBBB; margin-top: 20px;">
+              ぬいをお預かりするための<br>
+              情報を教えてください。
+            </p>
+          </div>
+
+          <div style="max-width: 600px; margin: 0 auto;">
+            <div class="form-group">
+              <label class="label">お名前 <span style="color: #FF6B6B; font-size: 0.7rem;">必須</span></label>
+              <input 
+                id="customer-name"
+                class="input"
+                value="${state.customerInfo.name}"
+                placeholder="山田 太郎"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="label">メールアドレス <span style="color: #FF6B6B; font-size: 0.7rem;">必須</span></label>
+              <input 
+                id="customer-email"
+                class="input"
+                type="email"
+                value="${state.customerInfo.email}"
+                placeholder="example@email.com"
+                required
+              />
+              <div style="font-size: 0.7rem; color: #CCCCCC; margin-top: 8px;">
+                ※ 診療写真（経過観察）の送付先となります
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="label">電話番号 <span style="color: #FF6B6B; font-size: 0.7rem;">必須</span></label>
+              <input 
+                id="customer-phone"
+                class="input"
+                type="tel"
+                value="${state.customerInfo.phone}"
+                placeholder="090-1234-5678"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="label">郵便番号 <span style="color: #FF6B6B; font-size: 0.7rem;">必須</span></label>
+              <input 
+                id="customer-postal"
+                class="input"
+                value="${state.customerInfo.postalCode}"
+                placeholder="123-4567"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="label">ご住所 <span style="color: #FF6B6B; font-size: 0.7rem;">必須</span></label>
+              <textarea 
+                id="customer-address"
+                class="textarea"
+                placeholder="都道府県・市区町村・番地・建物名・部屋番号"
+                required
+              >${state.customerInfo.address}</textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="label">備考（任意）</label>
+              <textarea 
+                id="customer-notes"
+                class="textarea"
+                placeholder="配送に関するご希望や、ぬいについて伝えたいことがあればご記入ください"
+              >${state.customerInfo.notes}</textarea>
+            </div>
+
+            <!-- 注意事項 -->
+            <div style="padding: 30px; border: 1px solid rgba(170, 170, 170, 0.15); background: rgba(255, 255, 255, 0.5); margin: 40px 0;">
+              <div style="font-size: 0.75rem; color: #BBBBBB; margin-bottom: 15px; text-align: center;">
+                お預かりについて
+              </div>
+              <div style="font-size: 0.8rem; line-height: 2; color: #AAAAAA;">
+                • 入力いただいた情報は、ぬいのお預かり・返送にのみ使用します<br>
+                • お預かり期間は約2週間を予定しています<br>
+                • 診療写真は随時、登録メールアドレスへ送信されます
+              </div>
+            </div>
+
+            <!-- 配送方法の案内 -->
+            <div style="padding: 30px; border: 1px solid rgba(170, 170, 170, 0.15); background: rgba(255, 255, 255, 0.5); margin: 40px 0;">
+              <div style="font-size: 0.75rem; color: #BBBBBB; margin-bottom: 20px; text-align: center;">
+                ぬいの送付方法
+              </div>
+              
+              <div style="margin-bottom: 25px;">
+                <div style="font-size: 0.85rem; color: #999999; margin-bottom: 12px; font-weight: 400;">
+                  お客様 → 診療所へ
+                </div>
+                <div style="font-size: 0.8rem; line-height: 2; color: #AAAAAA; margin-bottom: 15px;">
+                  お客様のご都合の良い配送業者にて、以下の住所へお送りください。
+                </div>
+                <div style="padding: 20px; background: rgba(255, 255, 255, 0.7); border: 1px solid rgba(170, 170, 170, 0.1); margin-bottom: 15px;">
+                  <div style="font-size: 0.8rem; line-height: 2; color: #888888;">
+                    <strong style="color: #999999;">送付先</strong><br>
+                    〒239-0807<br>
+                    神奈川県横須賀市根岸町4-20-20<br>
+                    ケイディビル302<br>
+                    <br>
+                    <strong style="color: #999999;">宛名</strong><br>
+                    キタクリワーク<br>
+                    ぬいぐるみ心整所 モコ 宛
+                  </div>
+                </div>
+                <div style="font-size: 0.75rem; line-height: 2; color: #CCCCCC; padding: 15px; background: rgba(255, 255, 255, 0.5); border-left: 2px solid rgba(170, 170, 170, 0.2);">
+                  <strong style="color: #AAAAAA;">ご注意</strong><br>
+                  • 箱のサイズは80サイズまでに限らせていただきます<br>
+                  • 梱包材はそのまま返送時に使用いたしますので、大切に梱包してください
+                </div>
+              </div>
+
+              <div>
+                <div style="font-size: 0.85rem; color: #999999; margin-bottom: 12px; font-weight: 400;">
+                  診療所 → お客様へ
+                </div>
+                <div style="font-size: 0.8rem; line-height: 2; color: #AAAAAA; margin-bottom: 15px;">
+                  診療完了後、上記でご入力いただいたご住所へ、<br>
+                  当社より元払いにてお送りいたします。
+                </div>
+                <div style="font-size: 0.75rem; line-height: 2; color: #CCCCCC; padding: 15px; background: rgba(255, 255, 255, 0.5); border-left: 2px solid rgba(170, 170, 170, 0.2);">
+                  <strong style="color: #AAAAAA;">返送について</strong><br>
+                  • 送料は当社が負担いたします<br>
+                  • 包装は、お客様が送付してくださった箱・梱包材を原則として使用いたします<br>
+                  • 箱潰れや破損がない限り、元の梱包材を使用いたします<br>
+                  • 元の箱が使用できない場合のみ、当社負担にて新規の箱で返送いたします
+                </div>
+              </div>
+            </div>
+
+            <div class="action-buttons">
+              <button class="button" onclick="app.showPayment()">
+                戻る
+              </button>
+              <button 
+                class="button button-primary" 
+                onclick="app.submitCustomerInfo()"
+              >
+                情報を送信
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderFullCarte() {
+      if (!state.carteText || !state.selectedYorisoiMoco) return '';
+      
+      return `
+        <div class="container fade-in">
+          <div class="carte-header">
+            <div class="carte-nui-name">${state.questionnaire.name}</div>
+            <div class="carte-moco">きらめきモコより</div>
+          </div>
+          
+          <div class="carte-body">
+            ${assembleCarteFullText(state.carteText)}
+          </div>
+
+          <div class="carte-note">
+            ※ ここに並ぶ言葉は、きらめきモコが<br>
+            　 ぬいぐるみの声を受け取って、<br>
+            　 あとから書き留めたものモコ。
+          </div>
+
+          <!-- 寄り添いモコの表示 -->
+          <div class="yorisoi-section">
+            <div class="yorisoi-card">
+              <div class="yorisoi-name">
+                <span class="yorisoi-ear" style="background-color: ${state.selectedYorisoiMoco.earColor};"></span>
+                ${state.selectedYorisoiMoco.name}が寄り添います
+              </div>
+              <div class="yorisoi-phrase">
+                ${state.selectedYorisoiMoco.phrase}
+              </div>
+              <div class="yorisoi-description">
+                ${state.selectedYorisoiMoco.description}
+              </div>
+            </div>
+          </div>
+
+          <!-- 処方カード -->
+          <div class="prescription-card">
+            <div class="prescription-card-phrase">
+              ${state.selectedYorisoiMoco.phrase}
+            </div>
+          </div>
+
+          <!-- 寄り添いモコオプション -->
+          ${renderYorisoiOptionsSection()}
+
+          <div style="text-align: center; margin-top: 80px;">
+            <button class="button" onclick="app.showWelcome()">
+              トップへ戻る
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderYorisoiOptionsSection() {
+      return `
+        <div class="yorisoi-option-section">
+          <div style="height: 1px; background: linear-gradient(to right, transparent, rgba(170, 170, 170, 0.15), transparent); margin-bottom: 60px;"></div>
+          
+          <div class="yorisoi-option-title">
+            追加オプション
+          </div>
+          <div class="yorisoi-option-description">
+            必要であれば、<br>
+            小さな精霊を<br>
+            連れて帰ることもできるモコ。
+          </div>
+
+          <div class="yorisoi-option-box">
+            <div style="font-size: 0.9rem; font-weight: 400; letter-spacing: 0.15em; margin-bottom: 20px; color: #AAAAAA; text-align: center;">
+              寄り添いモコ（物理同封）
+            </div>
+            <div style="font-size: 0.8rem; line-height: 2; color: #BBBBBB; margin-bottom: 30px; text-align: center;">
+              ${state.selectedYorisoiMoco.name}を、日常に同行させることができるモコ。<br>
+              診療とは別の、寄り添い専用の精霊として、<br>
+              希望される期間お貸しするモコ。
+            </div>
+            <div class="yorisoi-options-list">
+              <div class="yorisoi-option-item" onclick="app.selectYorisoiOption('7day', 1500, '7日間')">
+                <div class="yorisoi-option-name">7日間</div>
+                <div class="yorisoi-option-price">¥1,500</div>
+              </div>
+              <div class="yorisoi-option-item" onclick="app.selectYorisoiOption('1month', 2500, '1ヶ月')">
+                <div class="yorisoi-option-name">1ヶ月</div>
+                <div class="yorisoi-option-price">¥2,500</div>
+              </div>
+              <div class="yorisoi-option-item" onclick="app.selectYorisoiOption('forever', 2000, '一生（買取）')">
+                <div class="yorisoi-option-name">一生（買取）</div>
+                <div class="yorisoi-option-price">¥2,000</div>
+              </div>
+            </div>
+            <div style="font-size: 0.7rem; line-height: 2; color: #CCCCCC; text-align: center;">
+              ※ 寄り添いモコは任意モコ。<br>
+              ※ 選ばなくても、整いは成立するモコ。
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // 法的ページのレンダリング（簡略版）
+    function renderTerms() {
+      return `
+        <div class="container fade-in">
+          <div style="margin-bottom: 60px;">
+            <button class="button button-small" onclick="app.showWelcome()">
+              ← トップへ戻る
+            </button>
+          </div>
+
+          <h2 class="salon-info-title">利用規約</h2>
+
+          <div style="max-width: 700px; margin: 0 auto;">
+            <div style="font-size: 0.8rem; line-height: 2.2; color: #AAAAAA; margin-bottom: 60px;">
+              この利用規約は、ぬいぐるみ心整所 モコ（以下「当サービス」といいます）の利用条件を定めるものです。
+            </div>
+
+            <div class="legal-section">
+              <div class="legal-label">サービスの性質</div>
+              <div class="legal-content">
+                当サービスは、心理的な疲労や消耗に対する「整え」を目的としたサービスであり、医療行為ではありません。診断、治療、医学的助言を提供するものではなく、医師の診察や治療の代替となるものではありません。心身の健康に関する問題がある場合は、必ず医師や専門家にご相談ください。
+              </div>
+            </div>
+
+            <div class="legal-section">
+              <div class="legal-label">サービス内容</div>
+              <div class="legal-content">
+                <strong>無料サービス:</strong> 問診フォームへの入力により、無料版カルテ（導入文）を提供します。<br>
+                <br>
+                <strong>ぬいお預かりサロン（有料）:</strong><br>
+                料金：¥5,500（税込・送料込み往復）<br>
+                内容：カルテ全文、存在の肯定フレーズ、処方カード、30日間の閲覧権<br>
+                <br>
+                <strong>寄り添いモコ（オプション・有料）:</strong><br>
+                料金：¥1,500〜¥2,500（税込）<br>
+                内容：物理商品の貸出または買取
+              </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 80px; padding: 30px; background: rgba(255, 255, 255, 0.5); border: 1px solid rgba(170, 170, 170, 0.08);">
+              <div style="font-size: 0.75rem; line-height: 2; color: #CCCCCC;">
+                最終更新日：2026年3月6日
+              </div>
+            </div>
+          </div>
+
+          <div style="text-align: center; margin-top: 60px;">
+            <button class="button" onclick="app.showWelcome()">
+              トップへ戻る
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderLegal() {
+      return `
+        <div class="container fade-in">
+          <div style="margin-bottom: 60px;">
+            <button class="button button-small" onclick="app.showWelcome()">
+              ← トップへ戻る
+            </button>
+          </div>
+
+          <h2 class="salon-info-title">特定商取引法に基づく表記</h2>
+
+          <div style="max-width: 700px; margin: 0 auto;">
+            <div class="legal-section">
+              <div class="legal-label">販売価格</div>
+              <div class="legal-content">
+                ぬいお預かりサロン：¥5,500（税込・送料込み往復）<br>
+                寄り添いモコ（7日間）：¥1,500（税込）<br>
+                寄り添いモコ（1ヶ月）：¥2,500（税込）<br>
+                寄り添いモコ（一生/買取）：¥2,000（税込）
+              </div>
+            </div>
+
+            <div class="legal-section">
+              <div class="legal-label">商品代金以外の必要料金</div>
+              <div class="legal-content">
+                ぬいお預かりサロンの基本料金には、送料（往復）が含まれます。<br>
+                消費税は商品代金に含まれます。
+              </div>
+            </div>
+
+            <div class="legal-section">
+              <div class="legal-label">お支払い方法</div>
+              <div class="legal-content">
+                クレジットカード決済（Square決済システム）
+              </div>
+            </div>
+          </div>
+
+          <div style="text-align: center; margin-top: 60px;">
+            <button class="button" onclick="app.showWelcome()">
+              トップへ戻る
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderPrivacy() {
+      return `
+        <div class="container fade-in">
+          <div style="margin-bottom: 60px;">
+            <button class="button button-small" onclick="app.showWelcome()">
+              ← トップへ戻る
+            </button>
+          </div>
+
+          <h2 class="salon-info-title">プライバシーポリシー</h2>
+
+          <div style="max-width: 700px; margin: 0 auto;">
+            <div style="font-size: 0.8rem; line-height: 2.2; color: #AAAAAA; margin-bottom: 60px;">
+              ぬいぐるみ心整所 モコは、ご利用者様の個人情報の保護を重要な責務と考え、以下のとおりプライバシーポリシーを定めます。
+            </div>
+
+            <div class="legal-section">
+              <div class="legal-label">取得する個人情報</div>
+              <div class="legal-content">
+                問診フォームに入力された情報（ぬいぐるみの名前、年齢、性格、最近の様子、気になる変化等）<br>
+                決済情報（クレジットカード情報はSquare社により安全に処理され、当サービスでは保持しません）
+              </div>
+            </div>
+
+            <div class="legal-section">
+              <div class="legal-label">個人情報の利用目的</div>
+              <div class="legal-content">
+                カルテの作成および提供<br>
+                処方カード（デジタルコンテンツ）の提供<br>
+                寄り添いモコ（物理商品）の発送<br>
+                お客様からのお問い合わせへの対応
+              </div>
+            </div>
+          </div>
+
+          <div style="text-align: center; margin-top: 60px;">
+            <button class="button" onclick="app.showWelcome()">
+              トップへ戻る
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    // ========================================
+    // 管理画面レンダリング関数
+    // ========================================
+    
+    function renderAdminLogin() {
+      return `
+        <div class="container admin-login fade-in">
+          <h2 class="salon-info-title">管理画面ログイン</h2>
+          
+          <div style="margin: 60px auto; max-width: 400px;">
+            <div class="form-group">
+              <label class="label">パスワード</label>
+              <input 
+                type="password"
+                id="admin-password"
+                class="input"
+                placeholder="パスワードを入力"
+                onkeypress="if(event.key === 'Enter') app.attemptAdminLogin()"
+              />
+            </div>
+
+            <button class="button button-primary" onclick="app.attemptAdminLogin()" style="width: 100%;">
+              ログイン
+            </button>
+          </div>
+
+          <div style="text-align: center; margin-top: 40px;">
+            <button class="button button-small" onclick="app.showWelcome()">
+              ← トップへ戻る
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderAdmin() {
+      const stats = calculateStats(state.carteList);
+      
+      return `
+        <div class="admin-container fade-in">
+          <div class="admin-header">
+            <h2 class="salon-info-title" style="margin: 0;">管理画面</h2>
+            <button class="button button-small" onclick="app.logoutAdmin()">
+              ログアウト
+            </button>
+          </div>
+
+          <!-- タブナビゲーション -->
+          <div class="admin-tabs">
+            <button 
+              class="admin-tab ${state.adminCurrentTab === 'cartes' ? 'active' : ''}" 
+              onclick="app.switchAdminTab('cartes')"
+            >
+              カルテ一覧
+            </button>
+            <button 
+              class="admin-tab ${state.adminCurrentTab === 'settings' ? 'active' : ''}" 
+              onclick="app.switchAdminTab('settings')"
+            >
+              設定
+            </button>
+          </div>
+
+          ${state.adminCurrentTab === 'cartes' ? renderAdminCartesTab(stats) : renderAdminSettingsTab()}
+
+          <div style="text-align: center; margin-top: 60px;">
+            <button class="button" onclick="app.showWelcome()">
+              トップへ戻る
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderAdminCartesTab(stats) {
+      return `
+        <!-- 統計情報 -->
+        <div class="admin-stats">
+          <div class="stat-card">
+            <div class="stat-number">${stats.totalCartes}</div>
+            <div class="stat-label">総カルテ数</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">${stats.freeOnly}</div>
+            <div class="stat-label">無料問診のみ</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">${stats.paid}</div>
+            <div class="stat-label">課金済み</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">${stats.completed}</div>
+            <div class="stat-label">情報入力完了</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">${stats.conversionRate}%</div>
+            <div class="stat-label">コンバージョン率</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">${stats.thisMonth}</div>
+            <div class="stat-label">今月の問診</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">${stats.thisWeek}</div>
+            <div class="stat-label">今週の問診</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">${stats.mostCommonMoco}</div>
+            <div class="stat-label">最多寄り添いモコ</div>
+          </div>
+        </div>
+
+        <!-- カルテ一覧 -->
+        <div>
+          <h3 class="salon-info-title" style="font-size: 1rem; text-align: left; margin-bottom: 30px;">
+            カルテ一覧
+          </h3>
+          
+          ${state.carteList.length === 0 ? `
+            <div style="text-align: center; padding: 60px; color: #CCCCCC;">
+              カルテがまだありません
+            </div>
+          ` : `
+            <div class="carte-list">
+              ${state.carteList.map(carte => `
+                <div class="carte-list-item">
+                  <div class="carte-info" onclick="app.viewCarteDetail('${carte.id}')">
+                    <div class="carte-name">${carte.questionnaire.name || '名前未設定'}</div>
+                    <div class="carte-date">
+                      ${new Date(carte.createdAt).toLocaleString('ja-JP')} | 
+                      ${carte.selectedYorisoiMoco?.name || '未選定'}
+                      ${carte.paymentStatus === 'completed' ? '<span style="margin-left: 10px; padding: 3px 8px; background: #C8E6C9; color: #2E7D32; font-size: 0.7rem; border-radius: 3px;">完了</span>' : ''}
+                      ${carte.paymentStatus === 'paid' ? '<span style="margin-left: 10px; padding: 3px 8px; background: #BBDEFB; color: #1565C0; font-size: 0.7rem; border-radius: 3px;">決済済</span>' : ''}
+                      ${carte.paymentStatus === 'free' || !carte.isPaid ? '<span style="margin-left: 10px; padding: 3px 8px; background: #F5F5F5; color: #757575; font-size: 0.7rem; border-radius: 3px;">無料</span>' : ''}
+                    </div>
+                  </div>
+                  <div class="carte-actions">
+                    <button class="button button-small" onclick="app.showEditCarte('${carte.id}'); event.stopPropagation();">
+                      編集
+                    </button>
+                    <button class="button button-small" onclick="app.deleteCarte('${carte.id}'); event.stopPropagation();">
+                      削除
+                    </button>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          `}
+        </div>
+      `;
+    }
+
+    function renderAdminSettingsTab() {
+      return `
+        <!-- 寄り添いモコオプション設定 -->
+        <div class="settings-section">
+          <h3 class="settings-title">寄り添いモコオプション価格設定</h3>
+          ${state.settings.yorisoiOptions.map((option, index) => `
+            <div class="settings-item">
+              <div class="settings-item-label">${option.label}</div>
+              <input 
+                type="number"
+                class="settings-item-input"
+                value="${option.price}"
+                onchange="app.updateYorisoiOptionPrice(${index}, this.value)"
+                placeholder="価格（円）"
+              />
+            </div>
+          `).join('')}
+          <div style="text-align: center; margin-top: 30px;">
+            <button class="button button-primary" onclick="app.saveSettings()">
+              設定を保存
+            </button>
+          </div>
+        </div>
+
+        <!-- ひとやすみの用意設定 -->
+        <div class="settings-section">
+          <h3 class="settings-title">ひとやすみの用意（処方）設定</h3>
+          ${state.settings.hitoyasumiItems.map((item, index) => `
+            <div class="settings-item" style="flex-direction: column; align-items: stretch;">
+              <div style="display: flex; gap: 20px; margin-bottom: 10px;">
+                <input 
+                  type="text"
+                  class="settings-item-input"
+                  value="${item.name}"
+                  onchange="app.updateHitoyasumiItemName(${index}, this.value)"
+                  placeholder="名前"
+                  style="flex: 1;"
+                />
+              </div>
+              <textarea 
+                class="settings-item-textarea"
+                onchange="app.updateHitoyasumiItemDescription(${index}, this.value)"
+                placeholder="説明"
+              >${item.description}</textarea>
+            </div>
+          `).join('')}
+          <div style="text-align: center; margin-top: 30px;">
+            <button class="button button-primary" onclick="app.saveSettings()">
+              設定を保存
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderAdminCarteDetail() {
+      const carte = state.selectedCarteForView;
+      if (!carte) return '';
+      
+      return `
+        <div class="admin-container fade-in">
+          <div style="margin-bottom: 40px;">
+            <button class="button button-small" onclick="app.showAdmin()">
+              ← 管理画面へ戻る
+            </button>
+          </div>
+
+          <h2 class="salon-info-title">カルテ詳細</h2>
+
+          <div class="carte-detail">
+            <div class="carte-detail-section">
+              <div class="carte-detail-label">基本情報</div>
+              <div class="carte-detail-content">
+                <strong>名前:</strong> ${carte.questionnaire.name || '未設定'}<br>
+                <strong>年齢:</strong> ${carte.questionnaire.age || '未設定'}<br>
+                <strong>作成日時:</strong> ${new Date(carte.createdAt).toLocaleString('ja-JP')}
+              </div>
+            </div>
+
+            <div class="carte-detail-section">
+              <div class="carte-detail-label">性格</div>
+              <div class="carte-detail-content">
+                ${carte.questionnaire.personality || '未入力'}
+              </div>
+            </div>
+
+            <div class="carte-detail-section">
+              <div class="carte-detail-label">最近の様子</div>
+              <div class="carte-detail-content">
+                ${carte.questionnaire.recentCondition || '未入力'}
+              </div>
+            </div>
+
+            <div class="carte-detail-section">
+              <div class="carte-detail-label">気になる変化</div>
+              <div class="carte-detail-content">
+                ${carte.questionnaire.concerns || '未入力'}
+              </div>
+            </div>
+
+            <div class="carte-detail-section">
+              <div class="carte-detail-label">疲れの種類</div>
+              <div class="carte-detail-content">
+                ${carte.questionnaire.fatigueType.join(', ') || 'なし'}
+              </div>
+            </div>
+
+            <div class="carte-detail-section">
+              <div class="carte-detail-label">役割</div>
+              <div class="carte-detail-content">
+                ${carte.questionnaire.role || '未入力'}
+              </div>
+            </div>
+
+            <div class="carte-detail-section">
+              <div class="carte-detail-label">寄り添いモコ</div>
+              <div class="carte-detail-content">
+                <span class="yorisoi-ear" style="background-color: ${carte.selectedYorisoiMoco.earColor}; width: 16px; height: 16px; display: inline-block; border-radius: 50%; margin-right: 8px; vertical-align: middle;"></span>
+                ${carte.selectedYorisoiMoco.name}<br>
+                <span style="font-size: 0.85rem; color: #BBBBBB;">${carte.selectedYorisoiMoco.phrase}</span>
+              </div>
+            </div>
+
+            <div class="carte-detail-section">
+              <div class="carte-detail-label">カルテ全文</div>
+              <div class="carte-detail-content" style="white-space: pre-line;">
+                ${assembleCarteFullText(carte.carteText)}
+              </div>
+            </div>
+          </div>
+
+          <div class="action-buttons">
+            <button class="button" onclick="app.showEditCarte('${carte.id}')">
+              このカルテを編集
+            </button>
+            <button class="button button-secondary" onclick="app.deleteCarte('${carte.id}')">
+              このカルテを削除
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderAdminEditCarte() {
+      const carte = state.selectedCarteForEdit;
+      if (!carte) return '';
+      
+      return `
+        <div class="admin-container fade-in">
+          <div style="margin-bottom: 40px;">
+            <button class="button button-small" onclick="app.showAdmin()">
+              ← 管理画面へ戻る
+            </button>
+          </div>
+
+          <h2 class="salon-info-title">カルテ編集</h2>
+
+          <div style="max-width: 700px; margin: 0 auto;">
+            <div class="form-group">
+              <label class="label">名前</label>
+              <input 
+                id="edit-name"
+                class="input"
+                value="${carte.questionnaire.name || ''}"
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="label">年齢</label>
+              <input 
+                id="edit-age"
+                class="input"
+                value="${carte.questionnaire.age || ''}"
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="label">性格</label>
+              <textarea 
+                id="edit-personality"
+                class="textarea"
+              >${carte.questionnaire.personality || ''}</textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="label">最近の様子</label>
+              <textarea 
+                id="edit-recentCondition"
+                class="textarea"
+              >${carte.questionnaire.recentCondition || ''}</textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="label">気になる変化</label>
+              <textarea 
+                id="edit-concerns"
+                class="textarea"
+              >${carte.questionnaire.concerns || ''}</textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="label">役割</label>
+              <textarea 
+                id="edit-role"
+                class="textarea"
+              >${carte.questionnaire.role || ''}</textarea>
+            </div>
+
+            <div class="action-buttons">
+              <button class="button" onclick="app.showAdmin()">
+                キャンセル
+              </button>
+              <button class="button button-primary" onclick="app.saveEditedCarte()">
+                保存
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // 統計計算
+    function calculateStats(cartes) {
+      const now = new Date();
+      
+      // 無料・課金の分類
+      const freeCartes = cartes.filter(c => !c.isPaid || c.paymentStatus === 'free');
+      const paidCartes = cartes.filter(c => c.isPaid || c.paymentStatus === 'paid' || c.paymentStatus === 'completed');
+      const completedCartes = cartes.filter(c => c.paymentStatus === 'completed');
+      
+      const thisMonth = cartes.filter(c => {
+        const carteDate = new Date(c.createdAt);
+        return carteDate.getMonth() === now.getMonth() && 
+               carteDate.getFullYear() === now.getFullYear();
+      }).length;
+
+      const thisWeek = cartes.filter(c => {
+        const carteDate = new Date(c.createdAt);
+        const weekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+        return carteDate >= weekAgo;
+      }).length;
+
+      const mocoCount = {};
+      cartes.forEach(c => {
+        const mocoName = c.selectedYorisoiMoco?.name || '未選定';
+        mocoCount[mocoName] = (mocoCount[mocoName] || 0) + 1;
+      });
+
+      const mostCommonMoco = Object.entries(mocoCount).sort((a, b) => b[1] - a[1])[0]?.[0] || '-';
+
+      return {
+        totalCartes: cartes.length,
+        freeOnly: freeCartes.length,
+        paid: paidCartes.length,
+        completed: completedCartes.length,
+        conversionRate: cartes.length > 0 ? Math.round((paidCartes.length / cartes.length) * 100) : 0,
+        thisMonth,
+        thisWeek,
+        mostCommonMoco
+      };
+    }
+
+    // カルテ取得関数（全件）
+    async function getAllCartes() {
+      try {
+        if (window.storage) {
+          try {
+            const result = await window.storage.list(STORAGE_PREFIX + 'carte_', false);
+            if (result && result.keys) {
+              const cartes = await Promise.all(
+                result.keys.map(async key => {
+                  try {
+                    const carteResult = await window.storage.get(key, false);
+                    return carteResult ? JSON.parse(carteResult.value) : null;
+                  } catch (e) {
+                    console.log('カルテ読み込みスキップ:', key);
+                    return null;
+                  }
+                })
+              );
+              return cartes.filter(c => c !== null).sort((a, b) => 
+                new Date(b.createdAt) - new Date(a.createdAt)
+              );
+            }
+          } catch (storageError) {
+            console.log('ストレージからのカルテ取得に失敗。空のリストを返します。');
+            return [];
+          }
+        } else {
+          // フォールバック: sessionStorage
+          const keys = Object.keys(sessionStorage).filter(k => k.startsWith(STORAGE_PREFIX + 'carte_'));
+          return keys.map(key => JSON.parse(sessionStorage.getItem(key)))
+            .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        }
+      } catch (error) {
+        console.log('カルテ取得エラー:', error.message);
+        return [];
+      }
+      return [];
+    }
+
+    // カルテ取得関数（単体）
+    async function getCarte(carteId) {
+      try {
+        const key = `${STORAGE_PREFIX}carte_${carteId}`;
+        if (window.storage) {
+          try {
+            const result = await window.storage.get(key, false);
+            return result ? JSON.parse(result.value) : null;
+          } catch (storageError) {
+            console.log('カルテが見つかりません:', carteId);
+            return null;
+          }
+        } else {
+          const data = sessionStorage.getItem(key);
+          return data ? JSON.parse(data) : null;
+        }
+      } catch (error) {
+        console.log('カルテ取得エラー:', error.message);
+        return null;
+      }
+    }
+
+    // カルテ削除関数
+    async function deleteCarteById(carteId) {
+      try {
+        const key = `${STORAGE_PREFIX}carte_${carteId}`;
+        if (window.storage) {
+          const result = await window.storage.delete(key, false);
+          return { success: result !== null };
+        } else {
+          sessionStorage.removeItem(key);
+          return { success: true };
+        }
+      } catch (error) {
+        console.error('カルテ削除エラー:', error);
+        return { success: false };
+      }
+    }
+
+    // ========================================
+    // アプリケーションロジック
+    // ========================================
+    const app = {
+      showWelcome() {
+        state.view = 'welcome';
+        render();
+      },
+
+      showQuestionnaireStart() {
+        state.view = 'questionnaireStart';
+        render();
+      },
+
+      showQuestionnaire() {
+        state.view = 'questionnaire';
+        render();
+        this.attachQuestionnaireListeners();
+      },
+
+      attachQuestionnaireListeners() {
+        document.getElementById('input-name').addEventListener('input', (e) => {
+          state.questionnaire.name = e.target.value;
+          this.updateSubmitButton();
+        });
+        document.getElementById('input-age').addEventListener('input', (e) => {
+          state.questionnaire.age = e.target.value;
+        });
+        document.getElementById('input-personality').addEventListener('input', (e) => {
+          state.questionnaire.personality = e.target.value;
+        });
+        document.getElementById('input-recent').addEventListener('input', (e) => {
+          state.questionnaire.recentCondition = e.target.value;
+        });
+        document.getElementById('input-concerns').addEventListener('input', (e) => {
+          state.questionnaire.concerns = e.target.value;
+        });
+        document.getElementById('input-role').addEventListener('input', (e) => {
+          state.questionnaire.role = e.target.value;
+        });
+
+        document.querySelectorAll('[data-fatigue-type]').forEach(checkbox => {
+          checkbox.addEventListener('change', (e) => {
+            const type = e.target.dataset.fatigueType;
+            if (e.target.checked) {
+              if (!state.questionnaire.fatigueType.includes(type)) {
+                state.questionnaire.fatigueType.push(type);
+              }
+            } else {
+              state.questionnaire.fatigueType = state.questionnaire.fatigueType.filter(t => t !== type);
+            }
+          });
+        });
+
+        const termsCheckbox = document.getElementById('terms-checkbox');
+        if (termsCheckbox) {
+          termsCheckbox.addEventListener('change', (e) => {
+            state.agreedToTerms = e.target.checked;
+            this.updateSubmitButton();
+          });
+        }
+      },
+
+      updateSubmitButton() {
+        const submitButton = document.querySelector('.button.button-primary[onclick="app.submitQuestionnaire()"]');
+        if (submitButton) {
+          const canSubmit = state.questionnaire.name && state.agreedToTerms;
+          submitButton.disabled = !canSubmit;
+        }
+      },
+
+      async submitQuestionnaire() {
+        if (!state.agreedToTerms) {
+          alert('利用規約とプライバシーポリシーに同意してください。');
+          return;
+        }
+
+        try {
+          const yorisoiMoco = selectYorisoiMoco(state.questionnaire);
+          
+          state.selectedYorisoiMoco = yorisoiMoco;
+          state.carteText = generateCarteText(state.questionnaire);
+          
+          const carteData = {
+            questionnaire: state.questionnaire,
+            selectedYorisoiMoco: yorisoiMoco,
+            carteText: state.carteText,
+            createdAt: new Date().toISOString(),
+            isPaid: false, // 初期は無料問診のみ
+            paymentStatus: 'free' // 'free' | 'paid' | 'completed'
+          };
+          
+          console.log('カルテを保存中...', carteData);
+          const result = await saveCarte(carteData);
+          
+          if (result.success) {
+            state.currentCarteId = result.id;
+            console.log('カルテ保存成功:', result.id);
+          } else {
+            console.error('カルテ保存失敗:', result.error);
+            alert('カルテの保存に失敗しました。もう一度お試しください。');
+            return;
+          }
+          
+          state.view = 'carteIntro';
+          render();
+        } catch (error) {
+          console.error('問診送信エラー:', error);
+          alert('エラーが発生しました: ' + error.message);
+        }
+      },
+
+      showSalonInfo() {
+        state.view = 'salonInfo';
+        render();
+      },
+
+      backToCarte() {
+        state.view = 'carteIntro';
+        render();
+      },
+
+      showHitoyasumi() {
+        state.view = 'hitoyasumi';
+        render();
+      },
+
+      showYorisoiOptions() {
+        state.view = 'fullCarte';
+        render();
+      },
+
+      showPayment() {
+        state.view = 'payment';
+        render();
+      },
+
+      selectYorisoiOption(period, price, label) {
+        state.selectedYorisoiOption = { period, price, label };
+        state.view = 'payment';
+        render();
+      },
+
+      proceedToSquareCheckout() {
+        // Square Payment Link（決済リンク）
+        // 【重要】以下のURLをSquareで作成した実際の決済リンクに置き換えてください
+        const SQUARE_CHECKOUT_URL = 'https://checkout.square.site/buy/XXXXXXXXXXXXXXX';
+        
+        // カルテIDを保存（決済完了後の確認用）
+        if (state.currentCarteId) {
+          sessionStorage.setItem('pending_carte_id', state.currentCarteId);
+          sessionStorage.setItem('payment_initiated', 'true');
+        }
+        
+        // Square決済ページに遷移
+        window.location.href = SQUARE_CHECKOUT_URL;
+      },
+
+      async checkPaymentSuccess() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const paymentInitiated = sessionStorage.getItem('payment_initiated');
+        
+        if (urlParams.get('payment') === 'success' && paymentInitiated) {
+          sessionStorage.removeItem('payment_initiated');
+          const carteId = sessionStorage.getItem('pending_carte_id');
+          
+          if (carteId) {
+            state.currentCarteId = carteId;
+            sessionStorage.removeItem('pending_carte_id');
+            
+            // カルテの課金状況を更新
+            try {
+              const carte = await getCarte(carteId);
+              if (carte) {
+                carte.isPaid = true;
+                carte.paymentStatus = 'paid';
+                carte.paidAt = new Date().toISOString();
+                await saveCarte(carte);
+                console.log('決済情報をカルテに記録しました');
+              }
+            } catch (error) {
+              console.log('決済情報の記録エラー:', error.message);
+            }
+          }
+          
+          // 決済完了後はお客様情報入力ページへ
+          state.view = 'customerInfo';
+          render();
+          
+          window.history.replaceState({}, document.title, window.location.pathname);
+        }
+      },
+
+      showCustomerInfo() {
+        state.view = 'customerInfo';
+        render();
+        this.attachCustomerInfoListeners();
+      },
+
+      attachCustomerInfoListeners() {
+        document.getElementById('customer-name').addEventListener('input', (e) => {
+          state.customerInfo.name = e.target.value;
+        });
+        document.getElementById('customer-email').addEventListener('input', (e) => {
+          state.customerInfo.email = e.target.value;
+        });
+        document.getElementById('customer-phone').addEventListener('input', (e) => {
+          state.customerInfo.phone = e.target.value;
+        });
+        document.getElementById('customer-postal').addEventListener('input', (e) => {
+          state.customerInfo.postalCode = e.target.value;
+        });
+        document.getElementById('customer-address').addEventListener('input', (e) => {
+          state.customerInfo.address = e.target.value;
+        });
+        document.getElementById('customer-notes').addEventListener('input', (e) => {
+          state.customerInfo.notes = e.target.value;
+        });
+      },
+
+      async submitCustomerInfo() {
+        // バリデーション
+        if (!state.customerInfo.name) {
+          alert('お名前を入力してください');
+          return;
+        }
+        if (!state.customerInfo.email) {
+          alert('メールアドレスを入力してください');
+          return;
+        }
+        if (!state.customerInfo.phone) {
+          alert('電話番号を入力してください');
+          return;
+        }
+        if (!state.customerInfo.postalCode) {
+          alert('郵便番号を入力してください');
+          return;
+        }
+        if (!state.customerInfo.address) {
+          alert('ご住所を入力してください');
+          return;
+        }
+
+        // お客様情報をカルテに紐づけて保存
+        try {
+          if (state.currentCarteId) {
+            const carte = await getCarte(state.currentCarteId);
+            if (carte) {
+              carte.customerInfo = state.customerInfo;
+              carte.customerInfoSubmittedAt = new Date().toISOString();
+              carte.paymentStatus = 'completed'; // 全ステップ完了
+              await saveCarte(carte);
+            }
+          }
+
+          // 完了画面へ
+          state.view = 'fullCarte';
+          render();
+        } catch (error) {
+          console.log('お客様情報保存エラー:', error.message);
+          alert('情報の保存に失敗しました。もう一度お試しください。');
+        }
+      },
+
+      showTerms() {
+        state.view = 'terms';
+        render();
+      },
+
+      showLegal() {
+        state.view = 'legal';
+        render();
+      },
+
+      showPrivacy() {
+        state.view = 'privacy';
+        render();
+      },
+
+      // ========================================
+      // 管理画面メソッド
+      // ========================================
+      
+      showAdminLogin() {
+        state.view = 'adminLogin';
+        render();
+      },
+
+      async attemptAdminLogin() {
+        const password = document.getElementById('admin-password').value;
+        // 簡易パスワード認証（本番環境ではより安全な方法を使用してください）
+        const ADMIN_PASSWORD = 'moco2026'; // ★ここを変更してください
+        
+        if (password === ADMIN_PASSWORD) {
+          state.isAdminAuthenticated = true;
+          await this.showAdmin();
+        } else {
+          alert('パスワードが正しくありません');
+        }
+      },
+
+      async showAdmin() {
+        if (!state.isAdminAuthenticated) {
+          this.showAdminLogin();
+          return;
+        }
+
+        state.view = 'admin';
+        console.log('カルテ一覧を取得中...');
+        state.carteList = await getAllCartes();
+        console.log('取得したカルテ数:', state.carteList.length);
+        console.log('カルテ一覧:', state.carteList);
+        render();
+      },
+
+      async viewCarteDetail(carteId) {
+        const carte = await getCarte(carteId);
+        if (carte) {
+          state.selectedCarteForView = carte;
+          state.view = 'adminCarteDetail';
+          render();
+        }
+      },
+
+      async showEditCarte(carteId) {
+        const carte = await getCarte(carteId);
+        if (carte) {
+          state.selectedCarteForEdit = carte;
+          state.view = 'adminEditCarte';
+          render();
+          this.attachEditCarteListeners();
+        }
+      },
+
+      attachEditCarteListeners() {
+        const fields = ['name', 'age', 'personality', 'recentCondition', 'concerns', 'role'];
+        fields.forEach(field => {
+          const element = document.getElementById(`edit-${field}`);
+          if (element) {
+            element.addEventListener('input', (e) => {
+              state.selectedCarteForEdit.questionnaire[field] = e.target.value;
+            });
+          }
+        });
+      },
+
+      async saveEditedCarte() {
+        if (!state.selectedCarteForEdit) return;
+        
+        const result = await saveCarte(state.selectedCarteForEdit);
+        if (result.success) {
+          alert('カルテを更新しました');
+          this.showAdmin();
+        } else {
+          alert('更新に失敗しました');
+        }
+      },
+
+      async deleteCarte(carteId) {
+        if (!confirm('このカルテを削除してもよろしいですか？')) return;
+        
+        const result = await deleteCarteById(carteId);
+        if (result.success) {
+          alert('カルテを削除しました');
+          this.showAdmin();
+        } else {
+          alert('削除に失敗しました');
+        }
+      },
+
+      logoutAdmin() {
+        state.isAdminAuthenticated = false;
+        state.view = 'welcome';
+        render();
+      },
+
+      switchAdminTab(tab) {
+        state.adminCurrentTab = tab;
+        render();
+      },
+
+      updateYorisoiOptionPrice(index, price) {
+        state.settings.yorisoiOptions[index].price = parseInt(price) || 0;
+      },
+
+      updateHitoyasumiItemName(index, name) {
+        state.settings.hitoyasumiItems[index].name = name;
+      },
+
+      updateHitoyasumiItemDescription(index, description) {
+        state.settings.hitoyasumiItems[index].description = description;
+      },
+
+      async saveSettings() {
+        try {
+          // 設定をストレージに保存
+          const settingsKey = STORAGE_PREFIX + 'settings';
+          if (window.storage) {
+            try {
+              await window.storage.set(settingsKey, JSON.stringify(state.settings), false);
+              alert('設定を保存しました');
+            } catch (storageError) {
+              // ストレージ失敗時はsessionStorageにフォールバック
+              sessionStorage.setItem(settingsKey, JSON.stringify(state.settings));
+              alert('設定を保存しました（ローカル保存）');
+            }
+          } else {
+            sessionStorage.setItem(settingsKey, JSON.stringify(state.settings));
+            alert('設定を保存しました');
+          }
+        } catch (error) {
+          console.log('設定保存エラー:', error.message);
+          alert('設定の保存に失敗しました: ' + error.message);
+        }
+      },
+
+      async loadSettings() {
+        try {
+          const settingsKey = STORAGE_PREFIX + 'settings';
+          if (window.storage) {
+            try {
+              const result = await window.storage.get(settingsKey, false);
+              if (result && result.value) {
+                state.settings = JSON.parse(result.value);
+              }
+            } catch (storageError) {
+              // ストレージが存在しない場合はデフォルト設定を使用
+              console.log('設定が見つかりません。デフォルト設定を使用します。');
+            }
+          } else {
+            const data = sessionStorage.getItem(settingsKey);
+            if (data) {
+              state.settings = JSON.parse(data);
+            }
+          }
+        } catch (error) {
+          // エラーが出てもデフォルト設定で続行
+          console.log('設定読み込みをスキップ:', error.message);
+        }
+      }
+    };
+
+    // ========================================
+    // レンダリング
+    // ========================================
+    function render() {
+      const views = {
+        welcome: renderWelcome,
+        questionnaireStart: renderQuestionnaireStart,
+        questionnaire: renderQuestionnaire,
+        carteIntro: renderCarteIntro,
+        salonInfo: renderSalonInfo,
+        hitoyasumi: renderHitoyasumi,
+        yorisoiOptions: renderYorisoiOptions,
+        payment: renderPayment,
+        customerInfo: renderCustomerInfo,
+        fullCarte: renderFullCarte,
+        terms: renderTerms,
+        legal: renderLegal,
+        privacy: renderPrivacy,
+        adminLogin: renderAdminLogin,
+        admin: renderAdmin,
+        adminCarteDetail: renderAdminCarteDetail,
+        adminEditCarte: renderAdminEditCarte
+      };
+      
+      let html = views[state.view]();
+      document.getElementById('app').innerHTML = html;
+      
+      // ページ遷移時にスクロール位置を上部にリセット
+      window.scrollTo(0, 0);
+
+      // 特定のビューでリスナーをアタッチ
+      if (state.view === 'customerInfo') {
+        app.attachCustomerInfoListeners();
+      }
+    }
+
+    // グローバルスコープに公開
+    window.app = app;
+
+    // 初期化処理
+    (async function init() {
+      // 設定を読み込み
+      await app.loadSettings();
+      
+      // 決済完了後の処理をチェック
+      app.checkPaymentSuccess();
+      
+      // 初期レンダリング
+      if (state.view === 'welcome') {
+        render();
+      }
+    })();
+  </script>
+</body>
+</html>
