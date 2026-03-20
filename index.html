@@ -1053,7 +1053,38 @@
       scores.sort((a, b) => b.score - a.score);
       return scores[0].score > 0 ? scores[0].moco : YORISOI_MOCO_TYPES.SUKIMA;
     }
-
+// ひとやすみアイテムの自動選出
+function selectHitoyasumiItems(questionnaire) {
+  const allText = `${questionnaire.recentCondition} ${questionnaire.concerns} ${questionnaire.fatigueType.join(' ')} ${questionnaire.personality}`.toLowerCase();
+  
+  const itemScores = state.settings.hitoyasumiItems.map(item => {
+    let score = 0;
+    
+    // キーワードマッチング
+    const keywords = {
+      'pound_cake': ['疲れ', '身体', '重', '眠', '休息'],
+      'madeleine': ['緊張', '硬', '力', '張'],
+      'kohaku': ['考え', '頭', 'ぐるぐる', '思考'],
+      'dry_tea': ['間', '余白', '時間', 'ゆっくり'],
+      'dry_soup': ['温', '冷', '安心', '落ち着']
+    };
+    
+    if (keywords[item.id]) {
+      keywords[item.id].forEach(keyword => {
+        if (allText.includes(keyword)) score += 1;
+      });
+    }
+    
+    return { item, score };
+  });
+  
+  // スコア順にソート
+  itemScores.sort((a, b) => b.score - a.score);
+  
+  // 上位3つを選出（最低でも1つ）
+  const selectedCount = Math.max(1, Math.min(3, itemScores.filter(i => i.score > 0).length));
+  return itemScores.slice(0, selectedCount).map(s => s.item);
+}
     // カルテテキスト生成
     function generateCarteText(questionnaire) {
       return {
@@ -2841,7 +2872,7 @@ ${carteText.usedPower}
 
         try {
           const yorisoiMoco = selectYorisoiMoco(state.questionnaire);
-          
+          const hitoyasumiItems = selectHitoyasumiItems(state.questionnaire);
           state.selectedYorisoiMoco = yorisoiMoco;
           state.carteText = generateCarteText(state.questionnaire);
           
