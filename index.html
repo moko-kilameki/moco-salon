@@ -2183,53 +2183,109 @@ paymentStatus: carteData.paymentStatus || 'free',
       `;
     }
 
-    function renderLegal() {
-      return `
-        <div class="container fade-in">
-          <div style="margin-bottom: 60px;">
-            <button class="button button-small" onclick="app.showWelcome()">
-              ← トップへ戻る
-            </button>
-          </div>
+   function renderLegal() {
+  return `
+    <div class="container fade-in">
+      <div style="margin-bottom: 60px;">
+        <button class="button button-small" onclick="app.showWelcome()">
+          ← トップへ戻る
+        </button>
+      </div>
 
-          <h2 class="salon-info-title">特定商取引法に基づく表記</h2>
+      <h2 class="salon-info-title">特定商取引法に基づく表記</h2>
 
-          <div style="max-width: 700px; margin: 0 auto;">
-            <div class="legal-section">
-              <div class="legal-label">販売価格</div>
-              <div class="legal-content">
-                ぬいお預かりサロン：¥5,500（税込・送料込み往復）<br>
-                寄り添いモコ（7日間）：¥1,500（税込）<br>
-                寄り添いモコ（1ヶ月）：¥2,500（税込）<br>
-                寄り添いモコ（一生/買取）：¥2,000（税込）
-              </div>
-            </div>
+      <div style="max-width: 700px; margin: 0 auto;">
 
-            <div class="legal-section">
-              <div class="legal-label">商品代金以外の必要料金</div>
-              <div class="legal-content">
-                ぬいお預かりサロンの基本料金には、送料（往復）が含まれます。<br>
-                消費税は商品代金に含まれます。
-              </div>
-            </div>
+        <div class="legal-section">
+          <div class="legal-label">事業者名</div>
+          <div class="legal-content">株式会社きらめき不動産　きらめきもこ心整所</div>
+        </div>
 
-            <div class="legal-section">
-              <div class="legal-label">お支払い方法</div>
-              <div class="legal-content">
-                クレジットカード決済（Square決済システム）
-              </div>
-            </div>
-          </div>
+        <div class="legal-section">
+          <div class="legal-label">運営責任者名</div>
+          <div class="legal-content">三輪ひとみ</div>
+        </div>
 
-          <div style="text-align: center; margin-top: 60px;">
-            <button class="button" onclick="app.showWelcome()">
-              トップへ戻る
-            </button>
+        <div class="legal-section">
+          <div class="legal-label">所在地</div>
+          <div class="legal-content">神奈川県横須賀市根岸町4-20-20 ケイディビル302</div>
+        </div>
+
+        <div class="legal-section">
+          <div class="legal-label">電話番号</div>
+          <div class="legal-content">090-9254-1828</div>
+        </div>
+
+        <div class="legal-section">
+          <div class="legal-label">メールアドレス</div>
+          <div class="legal-content">kiramekimoko@gmail.com</div>
+        </div>
+
+        <div class="legal-section">
+          <div class="legal-label">販売価格</div>
+          <div class="legal-content">
+            基本料金：¥5,500（税込・送料込み往復）<br>
+            オプション料金：¥1,000〜
           </div>
         </div>
-      `;
-    }
 
+        <div class="legal-section">
+          <div class="legal-label">商品代金以外の必要料金</div>
+          <div class="legal-content">
+            当社へお送りいただく際の送料はお客様負担となります。<br>
+            返送料は当社負担です。
+          </div>
+        </div>
+
+        <div class="legal-section">
+          <div class="legal-label">支払方法</div>
+          <div class="legal-content">Square決済</div>
+        </div>
+
+        <div class="legal-section">
+          <div class="legal-label">支払時期</div>
+          <div class="legal-content">即時決済。決済後にサロン問診が確定します。</div>
+        </div>
+
+        <div class="legal-section">
+          <div class="legal-label">役務の提供時期 / 商品の引渡時期</div>
+          <div class="legal-content">
+            当社にぬい到着後、14日程度を目安にお預かりいたします。<br>
+            その後、ぬいの心が整い次第、7営業日以内を目安に順次ご返送いたします。
+          </div>
+        </div>
+
+        <div class="legal-section">
+          <div class="legal-label">キャンセルについて</div>
+          <div class="legal-content">
+            ぬいを送っていただく前まではキャンセル可能です。<br>
+            ぬい到着後のキャンセルはできません。
+          </div>
+        </div>
+
+        <div class="legal-section">
+          <div class="legal-label">返品・交換について</div>
+          <div class="legal-content">
+            オプションの寄り添いモコの返却は承ります。<br>
+            ただし、その際の送料およびオプション代金の返金はいたしません。
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 80px; padding: 30px; background: rgba(255, 255, 255, 0.5); border: 1px solid rgba(170, 170, 170, 0.08);">
+          <div style="font-size: 0.75rem; line-height: 2; color: #CCCCCC;">
+            最終更新日：2026年3月23日
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 60px;">
+        <button class="button" onclick="app.showWelcome()">
+          トップへ戻る
+        </button>
+      </div>
+    </div>
+  `;
+}
     function renderPrivacy() {
       return `
         <div class="container fade-in">
