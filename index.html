@@ -889,6 +889,16 @@
     }
 
     /* ========================================
+       実績・お客様の声（準備中）
+    ======================================== */
+    @media (min-width: 600px) {
+      .results-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+    }
+    /* ========================================
        レスポンシブ
     ======================================== */
     @media (max-width: 768px) {
@@ -1333,6 +1343,58 @@ paymentStatus: carteData.paymentStatus || 'free',
               <button class="button button-small" onclick="app.showLegal()" style="font-size: 0.7rem; opacity: 0.6;">
                 特定商取引法に基づく表記
               </button>
+            </div>
+          </div>
+          <!-- 実績紹介 -->
+          <div style="margin: 100px auto 0; max-width: 600px;">
+            <div style="text-align: center; margin-bottom: 50px;">
+              <div style="font-size: 1rem; font-weight: 300; letter-spacing: 0.25em; color: #AAAAAA; margin-bottom: 20px;">
+                実績紹介
+              </div>
+              <div style="font-size: 0.8rem; line-height: 2.2; color: #CCCCCC;">
+                サロンの準備が整い次第、<br>
+                順次ご紹介いたします。
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+              ${['', '', ''].map(() => `
+                <div style="padding: 40px; border: 1px solid rgba(170, 170, 170, 0.1); background: rgba(255, 255, 255, 0.4); text-align: center;">
+                  <div style="width: 60px; height: 60px; border: 1px solid rgba(170, 170, 170, 0.15); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;">
+                    <span style="font-size: 0.6rem; color: #DDDDDD; letter-spacing: 0.1em;">準備中</span>
+                  </div>
+                  <div style="font-size: 0.75rem; color: #DDDDDD; letter-spacing: 0.1em; line-height: 2;">
+                    掲載準備中です。<br>
+                    公開まで今しばらくお待ちください。
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+          <!-- お客様の声 -->
+          <div style="margin: 100px auto 0; max-width: 600px;">
+            <div style="text-align: center; margin-bottom: 50px;">
+              <div style="font-size: 1rem; font-weight: 300; letter-spacing: 0.25em; color: #AAAAAA; margin-bottom: 20px;">
+                お客様の声
+              </div>
+              <div style="font-size: 0.8rem; line-height: 2.2; color: #CCCCCC;">
+                実際にご利用いただいた方の声を、<br>
+                サロン完成後に順次掲載予定です。
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+              ${['', '', ''].map(() => `
+                <div style="padding: 40px; border: 1px solid rgba(170, 170, 170, 0.1); background: rgba(255, 255, 255, 0.4); text-align: center; position: relative;">
+                  <div style="font-size: 2rem; color: rgba(170, 170, 170, 0.1); line-height: 1; margin-bottom: 15px;">"</div>
+                  <div style="font-size: 0.75rem; color: #DDDDDD; letter-spacing: 0.1em; line-height: 2.2;">
+                    掲載準備中です。<br>
+                    整い次第、こちらにご紹介いたします。
+                  </div>
+                  <div style="margin-top: 20px; width: 30px; height: 1px; background: rgba(170, 170, 170, 0.15); margin-left: auto; margin-right: auto;"></div>
+                  <div style="font-size: 0.65rem; color: #DDDDDD; margin-top: 15px; letter-spacing: 0.1em;">— 準備中</div>
+                </div>
+              `).join('')}
             </div>
           </div>
           <!-- フッターリンク -->
@@ -2123,9 +2185,9 @@ paymentStatus: carteData.paymentStatus || 'free',
               希望される期間お貸しするモコ。
             </div>
             <div class="yorisoi-options-list">
-              <div class="yorisoi-option-item" onclick="app.selectYorisoiOption('7day', 1500, '7日間')">
+              <div class="yorisoi-option-item" onclick="app.selectYorisoiOption('7day', 1000, '7日間')">
                 <div class="yorisoi-option-name">7日間</div>
-                <div class="yorisoi-option-price">¥1,500</div>
+                <div class="yorisoi-option-price">¥1,000</div>
               </div>
               <div class="yorisoi-option-item" onclick="app.selectYorisoiOption('1month', 2500, '1ヶ月')">
                 <div class="yorisoi-option-name">1ヶ月</div>
